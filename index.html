@@ -12,8 +12,9 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Alpine JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-
   <style>
     body {
       background: rgb(6, 6, 94);
@@ -66,10 +67,35 @@
         fill: white;
       }
     }
+
+    .whatsapp-link {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 1px 1px 2px #888;
+      z-index: 1000;
+      transform: scale(1.7);
+    }
+
+    .fa-whatsapp {
+      margin-top: 16px;
+    }
   </style>
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900">
+  <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=551194957-5463" target="_blank">
+    <i class="fa fa-whatsapp"></i>
+  </a>
+
+
   <header class="bg-white shadow-md">
     <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
       <a href="#" class="text-3xl font-bold text-gray-700">Henji Serviços</a>
@@ -89,6 +115,7 @@
     <div class="bg-white rounded shadow-md p-6 flex flex-col md:flex-row items-center md:space-x-6">
       <div class="swiper-container eletricista-swiper w-64 h-64 rounded-md">
         <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background-image: url('eletricista0.jpeg');"></div>
           <div class="swiper-slide" style="background-image: url('eletricista1.jpeg');"></div>
           <div class="swiper-slide" style="background-image: url('eletricista2.jpeg');"></div>
           <div class="swiper-slide" style="background-image: url('eletricista3.jpeg');"></div>
@@ -139,12 +166,18 @@
     <div class="bg-white rounded shadow-md p-6 flex flex-col md:flex-row items-center md:space-x-6">
       <div class="swiper-container montagem-swiper w-64 h-64 rounded-md">
         <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background-image: url('montagem0.jpeg');"></div>
           <div class="swiper-slide" style="background-image: url('montagem1.jpeg');"></div>
           <div class="swiper-slide" style="background-image: url('montagem2.jpeg');"></div>
           <div class="swiper-slide" style="background-image: url('montagem3.jpeg');"></div>
           <div class="swiper-slide" style="background-image: url('montagem4.jpeg');"></div>
           <div class="swiper-slide" style="background-image: url('montagem5.jpeg');"></div>
           <div class="swiper-slide" style="background-image: url('montagem6.jpeg');"></div>
+          <div class="swiper-slide" style="background-image: url('montagem7.jpeg');"></div>
+          <div class="swiper-slide" style="background-image: url('montagem8.jpeg');"></div>
+          <div class="swiper-slide" style="background-image: url('montagem9.jpeg');"></div>
+          <div class="swiper-slide" style="background-image: url('montagem10.jpeg');"></div>
+          <div class="swiper-slide" style="background-image: url('montagem11.jpeg');"></div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
