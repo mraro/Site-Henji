@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Henji Serviços</title>
-  
+
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Alpine JS -->
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  
+
   <style>
     body {
       background: rgb(6, 6, 94);
-      background: linear-gradient(0deg, rgba(6, 6, 94, 1) 24%, rgba(255, 255, 255, 1) 100%);
+      background: linear-gradient(0deg, rgba(17, 24, 39, 1) 24%, rgba(255, 255, 255, 1) 100%);
+      margin-top: 8rem !important;
     }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
     .swiper-container {
       width: 100%;
       height: 100%;
       position: relative;
     }
+
     .swiper-slide {
       background-size: cover;
       background-position: center;
       display: none;
     }
+
     .swiper-slide-active {
       display: block !important;
     }
-    .swiper-button-next, .swiper-button-prev {
+
+    .swiper-button-next,
+    .swiper-button-prev {
       color: #000;
     }
-    .swiper-button-lock{
+
+    .swiper-button-lock {
       display: block !important;
     }
+
     svg {
       background: transparent;
     }
+
     path {
       fill: black;
     }
+
     @media (prefers-color-scheme: dark) {
       path {
         fill: white;
@@ -49,14 +67,14 @@
     }
   </style>
 </head>
+
 <body class="bg-gray-100 dark:bg-gray-900">
   <header class="bg-white shadow-md">
     <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
       <a href="#" class="text-3xl font-bold text-gray-700">Henji Serviços</a>
       <div class="hidden md:flex space-x-4">
         <a href="#" class="px-3 py-2 text-gray-700 hover:bg-gray-200 rounded">Home</a>
-        <a href="#" class="px-3 py-2 text-gray-700 hover:bg-gray-200 rounded">Serviços</a>
-        <a href="#" class="px-3 py-2 text-gray-700 hover:bg-gray-200 rounded">Contato</a>
+        <a href="#ajuda" class="px-3 py-2 text-gray-700 hover:bg-gray-200 rounded">Serviços e Contato</a>
       </div>
     </nav>
   </header>
@@ -93,7 +111,8 @@
       </div>
       <div>
         <h2 class="text-xl font-bold">Eletricista Residencial</h2>
-        <p class="mt-2 text-gray-600">Instalações elétricas, manutenção e reparos em geral com segurança e eficiência.</p>
+        <p class="mt-2 text-gray-600">Instalações elétricas, manutenção e reparos em geral com segurança e eficiência.
+        </p>
       </div>
     </div>
 
@@ -132,13 +151,15 @@
       </div>
       <div>
         <h2 class="text-xl font-bold">Montagens e Ajustes</h2>
-        <p class="mt-2 text-gray-600">Montagem de móveis, instalação de cortinas, suportes de TV, nichos e ajustes de portas e corrediças.</p>
+        <p class="mt-2 text-gray-600">Montagem de móveis, instalação de cortinas, suportes de TV, nichos e ajustes de
+          portas e corrediças.</p>
       </div>
     </div>
   </section>
 
   <section class="container mx-auto px-6 py-12">
-    <h1 class="text-2xl font-semibold text-center text-gray-800 lg:text-3xl dark:text-white">Precisa de Ajuda?</h1>
+    <h1 id="ajuda" class="text-2xl font-semibold text-center text-gray-800 lg:text-3xl dark:text-white">Precisa de
+      Ajuda?</h1>
     <div class="mt-12 lg:flex lg:justify-between">
       <div class="lg:w-1/3">
         <h1 class="text-3xl font-semibold text-gray-800 dark:text-white">Serviços Oferecidos</h1>
@@ -182,7 +203,8 @@
           <div class="text-center">
             <i class="fas fa-door-closed fa-3x text-orange-500"></i>
             <h2 class="mt-2 text-xl font-medium text-gray-800 dark:text-white">Ajustes de Portas</h2>
-            <p class="text-gray-600 dark:text-gray-400">Ajustes e reparos em portas para garantir seu correto funcionamento.</p>
+            <p class="text-gray-600 dark:text-gray-400">Ajustes e reparos em portas para garantir seu correto
+              funcionamento.</p>
           </div>
         </div>
       </div>
@@ -190,28 +212,49 @@
   </section>
 
   <section class="container px-4 py-16 mx-auto">
-    <h2 class="text-2xl font-semibold tracking-tight text-gray-800 xl:text-3xl dark:text-white">Serviços Profissionais de Eletricista e Encanador</h2>
-    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Preencha o formulário abaixo para solicitar seu serviço.</p>
+    <h2 class="text-2xl font-semibold tracking-tight text-gray-800 xl:text-3xl dark:text-white">Serviços Profissionais
+      de Eletricista e Encanador</h2>
+    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Preencha o formulário abaixo para solicitar seu serviço.
+    </p>
     <form class="mt-8 space-y-6" id="serviceRequestForm">
       <div class="relative">
-        <input class="peer w-full px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" id="nome" placeholder=" " type="text" required>
-        <label for="nome" class="absolute left-4 -top-3.5 text-gray-600 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Seu Nome</label>
+        <input
+          class="peer w-full px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+          id="nome" placeholder=" " type="text" required>
+        <label for="nome"
+          class="absolute left-4 -top-3.5 text-gray-600 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Seu
+          Nome</label>
       </div>
       <div class="relative">
-        <input class="peer w-full px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" id="servico" placeholder=" " type="text" required>
-        <label for="servico" class="absolute left-4 -top-3.5 text-gray-600 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Descreva o serviço desejado</label>
+        <input
+          class="peer w-full px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+          id="servico" placeholder=" " type="text" required>
+        <label for="servico"
+          class="absolute left-4 -top-3.5 text-gray-600 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Descreva
+          o serviço desejado</label>
       </div>
       <div class="relative">
-        <input class="peer w-full px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" id="email" placeholder=" " type="email" required>
-        <label for="email" class="absolute left-4 -top-3.5 text-gray-600 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Seu E-mail</label>
+        <input
+          class="peer w-full px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+          id="email" placeholder=" " type="email" required>
+        <label for="email"
+          class="absolute left-4 -top-3.5 text-gray-600 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Seu
+          E-mail</label>
       </div>
       <div class="relative">
-        <input class="peer w-full px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" id="telefone" placeholder=" " type="tel" required>
-        <label for="telefone" class="absolute left-4 -top-3.5 text-gray-600 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Seu Telefone</label>
+        <input
+          class="peer w-full px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+          id="telefone" placeholder=" " type="tel" required>
+        <label for="telefone"
+          class="absolute left-4 -top-3.5 text-gray-600 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Seu
+          Telefone</label>
       </div>
-      <button class="px-6 py-3 text-sm font-semibold tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50" type="submit">Enviar Solicitação</button>
+      <button
+        class="px-6 py-3 text-sm font-semibold tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+        type="submit">Enviar Solicitação</button>
     </form>
-    <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">Atenção! Agende seu serviço hoje e obtenha um desconto especial.</p>
+    <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">Atenção! Agende seu serviço hoje e obtenha um desconto
+      especial.</p>
   </section>
 
   <footer class="bg-white mt-8 pt-4 border-t">
@@ -243,10 +286,10 @@
           prevEl: '.eletricista-swiper .swiper-button-prev',
         },
         on: {
-          init: function() {
+          init: function () {
             this.slides[this.activeIndex].style.display = 'block';
           },
-          slideChange: function() {
+          slideChange: function () {
             this.slides.forEach(slide => {
               slide.style.display = 'none';
             });
@@ -267,10 +310,10 @@
           prevEl: '.encanador-swiper .swiper-button-prev',
         },
         on: {
-          init: function() {
+          init: function () {
             this.slides[this.activeIndex].style.display = 'block';
           },
-          slideChange: function() {
+          slideChange: function () {
             this.slides.forEach(slide => {
               slide.style.display = 'none';
             });
@@ -291,10 +334,10 @@
           prevEl: '.montagem-swiper .swiper-button-prev',
         },
         on: {
-          init: function() {
+          init: function () {
             this.slides[this.activeIndex].style.display = 'block';
           },
-          slideChange: function() {
+          slideChange: function () {
             this.slides.forEach(slide => {
               slide.style.display = 'none';
             });
@@ -304,10 +347,11 @@
       });
     });
 
-    document.getElementById('serviceRequestForm').addEventListener('submit', function(event){
-      event.preventDefault(); 
+    document.getElementById('serviceRequestForm').addEventListener('submit', function (event) {
+      event.preventDefault();
       alert('Sua solicitação foi enviada com sucesso!');
     });
   </script>
 </body>
+
 </html>
