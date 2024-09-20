@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  background: rgb(6, 6, 94);
+  background: linear-gradient(0deg, rgba(17, 24, 39, 1) 24%, rgba(255, 255, 255, 1) 100%);
+  margin-top: 8rem !important;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+  display: none;
+}
+
+.swiper-slide-active {
+  display: block !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000;
+}
+
+.swiper-button-lock {
+  display: block !important;
+}
+
+svg {
+  background: transparent;
+}
+
+path {
+  fill: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  path {
+    fill: white;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h2,
+  p {
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  #services-ofer {
+    text-align: center !important;
+  }
+}
+
+.social {
+  position: fixed;
+  width: 50px;
+  height: 120px !important;
+  bottom: 80px;
+  padding: 3px !important;
+  right: 40px;
+  /* background-color: #ffffff5d !important; */
+  border-radius: 5px;
+  text-align: center;
+  font-size: 30px;
+  /* box-shadow: 1px 1px 2px #888; */
+  z-index: 1000;
+  transform: scale(1.5);
+  transition: transform 0.3s ease-in-out;
+  
+}
+

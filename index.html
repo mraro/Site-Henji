@@ -100,7 +100,7 @@
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900">
-  <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=551194957-5463" target="_blank">
+  <a class="whatsapp-link" href="https://wa.me/5511949575463?text=Tenho%20interesse%20nos%20seus%20serviços" target="_blank">
     <i class="fa fa-whatsapp"></i>
   </a>
 
@@ -221,32 +221,32 @@
           <div class="text-center">
             <i class="fas fa-bolt fa-3x text-yellow-500"></i>
             <h2 class="mt-2 text-xl font-medium text-gray-800 dark:text-white">Eletricista</h2>
-            <p class="text-gray-600 dark:text-gray-400">Serviços especializados em instalações e reparos elétricos.</p>
+            <p class="text-gray-600 dark:text-gray-300">Serviços especializados em instalações e reparos elétricos.</p>
           </div>
           <div class="text-center">
             <i class="fas fa-tools fa-3x text-blue-500"></i>
             <h2 class="mt-2 text-xl font-medium text-gray-800 dark:text-white">Encanador Residencial</h2>
-            <p class="text-gray-600 dark:text-gray-400">Soluções completas em hidráulica para sua casa.</p>
+            <p class="text-gray-600 dark:text-gray-300">Soluções completas em hidráulica para sua casa.</p>
           </div>
           <div class="text-center">
             <i class="fas fa-window-maximize fa-3x text-purple-500"></i>
             <h2 class="mt-2 text-xl font-medium text-gray-800 dark:text-white">Instalações de Cortinas</h2>
-            <p class="text-gray-600 dark:text-gray-400">Instalação profissional de cortinas para embelezar seu lar.</p>
+            <p class="text-gray-600 dark:text-gray-300">Instalação profissional de cortinas para embelezar seu lar.</p>
           </div>
           <div class="text-center">
             <i class="fas fa-tv fa-3x text-red-500"></i>
             <h2 class="mt-2 text-xl font-medium text-gray-800 dark:text-white">Suportes de TV</h2>
-            <p class="text-gray-600 dark:text-gray-400">Montagem segura e precisa de suportes para sua televisão.</p>
+            <p class="text-gray-600 dark:text-gray-300">Montagem segura e precisa de suportes para sua televisão.</p>
           </div>
           <div class="text-center">
             <i class="fas fa-layer-group fa-3x text-green-500"></i>
             <h2 class="mt-2 text-xl font-medium text-gray-800 dark:text-white">Nichos</h2>
-            <p class="text-gray-600 dark:text-gray-400">Criação e instalação de nichos decorativos e funcionais.</p>
+            <p class="text-gray-600 dark:text-gray-300">Criação e instalação de nichos decorativos e funcionais.</p>
           </div>
           <div class="text-center">
             <i class="fas fa-door-closed fa-3x text-orange-500"></i>
             <h2 class="mt-2 text-xl font-medium text-gray-800 dark:text-white">Ajustes de Portas</h2>
-            <p class="text-gray-600 dark:text-gray-400">Ajustes e reparos em portas para garantir seu correto
+            <p class="text-gray-600 dark:text-gray-300">Ajustes e reparos em portas para garantir seu correto
               funcionamento.</p>
           </div>
         </div>
@@ -316,6 +316,7 @@
 
   <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js" integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const eletricistaSwiper = new Swiper('.eletricista-swiper', {
@@ -391,8 +392,50 @@
       });
     });
 
+
+
+
+
     document.getElementById('serviceRequestForm').addEventListener('submit', function (event) {
       event.preventDefault();
+
+const axios = require('axios/dist/browser/axios.cjs'); // browser
+      // const axios = require('axios');
+
+async function sendEmail(name, email, subject, message) {
+  const data = JSON.stringify({
+    "Messages": [{
+      "From": {"Email": "henjymanutencoes@gmail.com", "Name": "Henjy"},
+      "To": [{"Email": email, "Name": name}],
+      "Subject": subject,
+      "TextPart": message
+    }]
+  });
+
+  const config = {
+    method: 'post',
+    url: 'https://api.mailjet.com/v3.1/send',
+    data: data,
+    headers: {'Content-Type': 'application/json'},
+    auth: {username: '41ff217a07b2effa1f6ba4b2742a530b', password: 'c588b91e3c1e7c656d7bf62a8d16ca28'},
+  };
+
+  return axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+}
+
+// define your own email api which points to your server.
+app.post('/api/sendemail/', function (req, res) {
+  const {name, email, subject, message} = req.body;
+  //implement your spam protection or checks.
+  sendEmail(name, email, subject, message);
+});
       alert('Sua solicitação foi enviada com sucesso!');
     });
   </script>

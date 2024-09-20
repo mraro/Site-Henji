@@ -1,0 +1,72 @@
+const express = require('express');
+const axios = require('axios');
+const path = require('path');
+
+const app = express();
+const port = 3000;
+
+// Middleware para parsear JSON
+app.use(express.json());
+
+// Servindo arquivos estáticos (HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Função para enviar o e-mail usando Mailjet
+async function sendEmail(name, email, subject, message) {
+  const data = JSON.stringify({
+    "Messages": [
+      {
+        "From": {
+          "Email": "henjymanutencoes@gmail.com",
+          "Name": "Henji Serviços"
+        },
+        "To": [
+          {
+            "Email": email,
+            "Name": name
+          }
+        ],
+        "Subject": subject,
+        "TextPart": message
+      }
+    ]
+  });
+
+  const config = {
+    method: 'post',
+    url: 'https://api.mailjet.com/v3.1/send',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    auth: {
+      username: '41ff217a07b2effa1f6ba4b2742a530b',
+      password: 'c588b91e3c1e7c656d7bf62a8d16ca28'
+    },
+    data: data
+  };
+
+  try {
+    const response = await axios(config);
+    console.log('Email enviado:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao enviar email:', error);
+    throw new Error('Erro ao enviar email');
+  }
+}
+
+// Rota para enviar email
+app.post('/api/sendemail', async (req, res) => {
+  const { name, email, subject, message } = req.body;
+  try {
+    const emailResponse = await sendEmail(name, email, subject, message);
+    res.status(200).json({ success: true, data: emailResponse });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+// Iniciar o servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});
