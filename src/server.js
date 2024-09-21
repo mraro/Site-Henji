@@ -18,24 +18,23 @@ const mailjet = Mailjet.apiConnect(
   process.env.MAILJET_API_SECRET // Chave privada do Mailjet
 );
 
-// Função para enviar SMS
-function enviarSMS(mensagem) {
-  const request = mailjet
-    .post('sms-send', { version: 'v4' })
-    .request({
-      Text: mensagem,
-      To: '+5511985099891', // Número do destinatário em formato internacional
-      From: 'Henjy', // Nome do remetente do SMS (máximo de 11 caracteres)
-    });
+// Função para enviar Whatsapp msg
+// var axios = require('axios');
 
-  request
-    .then((result) => {
-      console.log('SMS enviado com sucesso!', result.body);
-    })
-    .catch((err) => {
-      console.error('Erro ao enviar SMS:', err.statusCode, err.message);
-    });
-}
+// async function sendWhatsAppMessage(data) {
+//   var config = {
+//     method: 'post',
+//     url: `https://graph.facebook.com/${process.env.VERSION}/${process.env.PHONE_NUMBER_ID}/messages`,
+//     headers: {
+//       'Authorization': `Bearer ${process.env.ACCESS_TOKEN}`,
+//       'Content-Type': 'application/json'
+//     },
+//     data: data
+//   };
+
+//   return axios(config)
+// }
+
 
 // Rota para enviar o e-mail e SMS
 app.post('/api/sendemail', (req, res) => {
@@ -75,9 +74,9 @@ app.post('/api/sendemail', (req, res) => {
       console.log('E-mail enviado com sucesso!', result.body);
 
       // Enviar SMS após o envio do e-mail
-      enviarSMS(`Nova solicitação de serviço de ${nome}. Serviço: ${servico}. Contato: ${telefone}`);
+      // sendWhatsAppMessage(`Nova solicitação de serviço de ${nome}. Serviço: ${servico}. Contato: ${telefone}`);
 
-      res.json({ message: 'E-mail e SMS enviados com sucesso!' });
+      res.json({ message: 'Informações enviadas com sucesso!' });
     })
     .catch((err) => {
       console.error('Erro ao enviar o e-mail:', err.statusCode);
@@ -87,5 +86,6 @@ app.post('/api/sendemail', (req, res) => {
 
 // Iniciar o servidor
 app.listen(port, () => {
+  // sendWhatsAppMessage("Servidor iniciado")
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
